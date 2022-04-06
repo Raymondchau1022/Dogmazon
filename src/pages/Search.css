@@ -1,0 +1,146 @@
+.Search-container{
+  padding: 5vh 5vw;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+}
+
+.filter-left{
+  display: flex;
+  flex-direction: column;
+  gap: 5vh;
+}
+
+.ProductType-button, .Rating-button, .Price-button{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+  cursor: pointer;
+  align-items: center;
+}
+
+.collapse{
+  display:none;
+}
+
+.collapse-show{
+  display:fixed;
+}
+
+.list{
+  font-size: 1.1rem;
+  list-style-type: none;
+  list-style-position: outside;
+  line-height: 1.6rem;
+  
+  padding-left: 0.5rem;
+  margin-bottom: 0;
+}
+
+.item{
+  color: rgb(66, 63, 63);
+}
+
+.Search-arrow{
+  color: rgba(39, 39, 39, 0.7);
+  font-size: 0.9rem;
+  text-align: justify;
+  padding-left: 6.5vw;
+}
+
+.Search-content{
+  padding-left: 3rem;
+}
+
+.Search-result{
+  font-size: 1.5rem;
+}
+
+/*Sorting*/
+.filter-right{
+display: flex;
+justify-content: space-between;
+}
+
+
+.SortingBy-Button {
+    color: rgb(0,0,0);
+    display: flex;
+    justify-content: space-between;
+    font-size: 1rem;
+    cursor: pointer;
+    align-items: center;
+    position: relative;
+  }
+  
+  .SortingBy {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position:absolute;
+    background-color: #f9f9f9;
+    min-width: 8vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    right:0;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 1vh ;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+       background-color: #f1f1f1;
+    }
+  
+  .SortingBy:hover .dropdown-content {
+    display: block;
+  }
+  .sortingby-arrow{
+      margin-left:1rem;
+  }
+  
+
+  
+
+.Search-content-items{
+  margin: 5vh 2vw;
+  display:grid;
+  justify-content: center;
+  grid-template-columns: auto auto auto auto;
+  grid-column-gap: 3vh;
+  grid-row-gap: 2vh;
+}
+
+
+.Items{
+  width: 270px;
+}
+
+@media (max-width: 1450px) {
+  .Search-content-items{
+    grid-template-columns: auto auto auto;
+  }
+}
+
+@media (max-width: 1200px) {
+  .Search-content-items {
+    grid-template-columns: auto auto;
+  }
+  .Items{
+    width: 300px;
+  }
+  
+}
+
+@media (max-width: 1200px) {
+  .Search-content-items {
+    grid-template-columns: auto auto;
+  }
+}
+

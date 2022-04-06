@@ -1,0 +1,144 @@
+html,body{
+    margin: 0 0;
+    padding: 0 0;
+}
+
+.navigationBar{
+    position: -webkit-sticky;
+    position: sticky;
+    top:0;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1.5fr;
+    grid-gap: 3px;
+    list-style: none;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    z-index: 100;
+}
+
+.navLeft img{
+    height: 70px;
+    width: 141px;
+}
+
+.dogmazonlogo{
+  cursor: pointer;
+}
+
+.navCenter{
+    margin: 1rem 1rem;
+    text-align: center;
+    display: flex;
+    gap: 2rem;
+}
+
+form {
+  color: rgb(50, 50, 50);
+  display: flex;
+  padding: 0px;
+  border: 2px solid rgb(180, 180, 180);
+}
+
+.product{
+  margin-top: 0.5rem;
+}
+
+
+.productSearch{
+    border: none;
+    background: transparent;
+    margin: 0;
+    padding: 7px 4px;
+    color: inherit;
+    border: 2px solid transparent;
+    min-width: 500px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+}
+
+.productSearch::placeholder{
+  color: rgba(150, 150, 150, 0.9);
+}
+
+.searchButton {
+    text-indent: -999px;
+    overflow: hidden;
+    min-width: 40px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid transparent;
+    background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' class='bi bi-search' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E") no-repeat center;
+    cursor: pointer;
+    opacity: 0.9;
+  }
+
+  .productSearch:focus,
+  .searchButton:focus {
+  outline: none;
+}
+
+
+.navSelect{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 0.5rem;
+  font-size: 20.5px;
+}
+
+.productButton{
+  min-width: 120px;
+  font-size: 20.5px;
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+/*product*/
+
+.product-container{
+  background-color: rgba(255, 255, 255, 0);
+  display: none;
+  left: 0;
+  position: absolute;
+  box-sizing: border-box;
+  height:20vh;
+  width: 100vw;
+}
+
+.product-space{
+  background-color: rgba(255, 255, 255, 0);
+  padding: 1vh;
+}
+
+.product-content {
+  padding: 2vh 10vw;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: flex-start;
+  border-color: transparent;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.product:hover .product-container{
+  display: block; 
+}
+
+.navRight{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1.5rem;
+    font-size: 20.5px;
+}
+
+.navRight i{
+    padding-left: 0.5rem;
+}
+
+.signIn, .support, .about, .profile{
+  cursor: pointer;
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}

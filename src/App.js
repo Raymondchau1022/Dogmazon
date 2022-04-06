@@ -1,25 +1,65 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, useState, useEffect } from 'react';
+import { BrowserRouter, Route, Routes} from 'react-router-dom';
+import Cookies from 'universal-cookie';
+import Axios from 'axios'
+
+import './App.css'
+
+import Home from './pages/Home.js';
+import Login from './pages/Login.js';
+import Register from './pages/Register.js';
+import ForgotPassword from './pages/ForgotPassword.js';
+import Search from './pages/Search.js';
+import Copyright from './pages/Copyright.js';
+import AboutUs from './pages/AboutUs.js';
+import Profile from './pages/Profile.js';
+import NotFound from './pages/NotFound.js';
+
+export const UserContext = createContext();
 
 function App() {
+
+  const cookies = new Cookies();
+  const [user, setUser] = useState(null);
+  
+  const readcookie = () =>{
+    
+  }
+
+  useEffect(() => {
+    const username = cookies.get('user');
+    Axios.get(`http://localhost:5000/loggedin/${username}`
+        ).then((response) => {
+          if (response.data){
+            setUser(response.data);
+          } 
+        })
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <UserContext.Provider value={{ user, setUser }}>
+        <Routes>
+          <Route path='/' element={<Home />} exact />
+          <Route path='/search/:SearchResult' element={<Search />}/>
+          <Route path='/copyright' element={<Copyright />}/>
+          <Route path='/aboutus' element={<AboutUs />}/>
+
+          <Route path='/login' element={<Login />}/>
+          <Route path='/register' element={<Register />}/>
+          <Route path='/forgotpassword' element={<ForgotPassword />}/>
+
+          
+          <Route path='/Profile' element={<Profile />}/>
+         
+          <Route path='*' element={<NotFound />}/>
+        </Routes>
+      </UserContext.Provider>
+    </BrowserRouter>
+    )
+
 }
 
+
 export default App;
+

@@ -1,0 +1,46 @@
+a:link{
+    text-decoration: none!important;
+  }
+
+.ProductTypes {
+    height: 185px;
+    display: flex;
+    padding: 5px;
+    position: relative;
+    align-self: stretch;
+    box-sizing: border-box;
+    align-items: flex-start;
+    border-color: transparent;
+    flex-direction: column;
+    cursor: pointer;
+    
+}
+
+.ProductTypes-image {
+    width: 150px;
+    height: 150px;
+    margin: 0 0 5px 0;
+    position: relative;
+    object-fit: cover;
+    border-color: transparent;
+    background-color: rgba(196, 196, 196, 1);
+    border-radius: 5px;
+    user-select: none;
+    -webkit-user-drag: none; 
+}
+
+.ProductTypes-text {
+    color: rgba(0, 0, 0, 1);
+    width: 150px;
+    height: auto;
+    font-size: 15px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: 'Kalam', cursive;
+    font-weight: bolder;
+    font-weight: 400;
+    line-height: normal;
+    font-stretch: normal;
+    
+}

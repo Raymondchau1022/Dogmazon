@@ -1,0 +1,99 @@
+.Items {
+    width: 300px;
+    height: 400px;
+    display: flex;
+    overflow: hidden;
+    position: relative;
+    max-width: 300px;
+    box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25) ;
+    box-sizing: border-box;
+    align-items: flex-start;
+    border-color: transparent;
+    flex-direction: column;
+    z-index: -1;
+}
+
+.Items-image {
+    width: auto;
+    height: auto;
+    max-height: 300px;
+    position: relative;
+    flex-grow: 1;
+    align-self: stretch;
+    object-fit: cover;
+    flex-shrink: 1;
+    border-color: transparent;
+    user-select: none;
+    -webkit-user-drag: none; 
+}
+
+.Items-text {
+    display: flex;
+    padding: 5px 10px 10px 10px;
+    position: relative;
+    align-self: stretch;
+    box-sizing: border-box;
+    align-items: flex-start;
+    flex-shrink: 1;
+    border-color: transparent;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.Items-description {
+    color: rgba(0, 0, 0, 1);
+    width: 280px;
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    align-self: center;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+}
+
+.Items-dollor {
+    color: rgba(215, 76, 76, 1);
+    width: 280px;
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    align-self: stretch;
+    font-style: normal;
+    text-align: left;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+}
+  
+.Items-rankwithnumbers {
+    display: flex;
+    position: relative;
+    align-self: stretch;
+    box-sizing: border-box;
+    align-items: flex-start;
+    border-color: transparent;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.Items-rank {
+    width: 30px;
+    font-size: 14px;
+    margin-right:15px;
+    
+}
+
+.Items-number {
+    color: rgba(151, 151, 151, 1);
+    width: 30px;
+    font-size: 14px;
+    align-self: auto;
+    font-style: normal;
+    text-align: center;
+    font-family: Roboto;
+    font-weight: 600;
+    line-height: normal;
+    font-stretch: normal;
+}

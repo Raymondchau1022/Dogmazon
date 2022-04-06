@@ -1,0 +1,90 @@
+.footer{
+    background-color: rgb(40, 40, 40);
+    padding: 8vh 8vw 3vh 8vw;
+}
+
+.footer-content{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20vw 3vh 0vw;
+    color: rgba(255, 255, 255, 0.9);
+    font-family: 'PT Sans', sans-serif;
+    font-weight: bold;
+
+}
+
+.footer-content *{
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.footer-content,.About-us,.statement,.Follow-us{
+    line-height: 4.5vh;
+    font-size: 0.9rem;
+    letter-spacing: 0.7px;
+}
+
+
+
+
+.Title{
+    font-size: 1.2rem;
+    font-weight: bolder;
+    margin-bottom: 0.5vh;
+    letter-spacing: 0.4px;
+    font-family: 'Roboto Serif', sans-serif;
+}
+
+.logo{
+    padding-top:10px;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+}
+
+.logo *{
+    padding-right:3vw ;
+    cursor: pointer;
+    
+}
+
+
+
+.Warning{
+    font-family: 'PT Sans', sans-serif;
+    text-align: center;
+    font-size: 0.8rem;
+    color: rgba(180, 180, 180, 0.9);
+    line-height: 3vh;
+}
+
+@media (max-width: 1200px) {
+    .footer-content{
+        margin-right: 10vw;
+    }
+}
+
+@media (max-width: 900px) {
+    .footer-content{
+        display:grid;
+        grid-template-columns: auto auto;
+        grid-column-gap: 0vw;
+        grid-row-gap: 5vh;
+        margin-right: 20vw;
+    }
+}
+
+@media (max-width: 750px) {
+    .footer-content{
+        margin-right: 10vw;
+    }
+}
+
+@media (max-width: 550px) {
+    .footer-content{
+        display:grid;
+        grid-template-columns: auto;
+        grid-row-gap: 3vh;
+        margin-right: 0;
+    }
+}
