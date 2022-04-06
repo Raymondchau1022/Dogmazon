@@ -1,5 +1,6 @@
 # Dogmazon
 Dogmazon is a responsive online shopping web application, which facilitates buying and selling actions by using REST API and CRUD Operations.
+> Notice: This project is still on development status (30/3/2022). The website will be hosted after completion.
 ## Technologies
 Dogmazon is created with a full stack development. We are aimed to become a modern, featured, and user-friendly web application.
 ### React
