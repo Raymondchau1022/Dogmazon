@@ -32,3 +32,6 @@ Dogmazon is created with a full stack development. We are aimed to become a mode
 * Contact-us
 * FAQ Page
 ## Preview
+![HOME PREVIEW](Preview/preview1.png)
+
+![LOGIN PREVIEW](Preview/preview2.png)
