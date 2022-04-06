@@ -2,7 +2,7 @@
 Dogmazon is a responsive online shopping web application, which facilitates buying and selling actions by using REST API and CRUD Operations.
 > Notice: This project is still on development status (06/4/2022). The website will be hosted after completion.
 ## Technologies
-ReactJS, CSS, Python Flask, MongoDB
+ReactJS, CSS, Python Flask, MongoDB, Axios
 ## Highlights
 #### Design and Architecture
 * Fully Responsive
