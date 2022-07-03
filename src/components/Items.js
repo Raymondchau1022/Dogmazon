@@ -3,9 +3,16 @@ import './Items.css'
 import Default from "../images/DefaultImage.jpg";
 
 
-const Items = ({image,description,dollor,rank,number}) => {
+const Items = ({image,description,dollor,rank,number,productID}) => {
+
+  
+  const starPercentage= (rank/5)*100;
+  const starPercentageRounded = Math.round(starPercentage / 10) * 10; 
+   
+
   return (
-      <div className="Items">
+    <a href={`/product/${productID}`}>
+      <div className="Items" >
         <img
           src= {image}
           alt="Itemimage"
@@ -15,20 +22,27 @@ const Items = ({image,description,dollor,rank,number}) => {
           <span className="Items-description">{description}</span>
           <span className="Items-dollor">${dollor}</span>
           <div className="Items-rankwithnumbers">
-            <span className="Items-rank">{rank}</span>
-            <span className="Items-number">({number})</span>
+          <div className="stars-container">
+          <div className="stars-outer">
+            <div className="stars-inner" style={{width:`${starPercentageRounded}%`}}></div>
+          </div>
+          <span className="stars-number">{rank}</span>
+          </div>
+          <span className="Items-number">({number})</span>
           </div>
         </div>
       </div>
+    </a>
   )
 }
 
 Items.defaultProps ={
   image: Default,
   description: 'Description',
-  dollor: 87,
-  rank: <i className='fas fa-star'></i>,
-  number: 64,
+  dollor: 0,
+  rank: 0,
+  number: 0,
+  productID: 0
 }
 
 

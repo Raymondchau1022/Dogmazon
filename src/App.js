@@ -13,6 +13,7 @@ import Search from './pages/Search.js';
 import Copyright from './pages/Copyright.js';
 import AboutUs from './pages/AboutUs.js';
 import Profile from './pages/Profile.js';
+import Product from './pages/Product.js';
 import NotFound from './pages/NotFound.js';
 
 export const UserContext = createContext();
@@ -22,9 +23,7 @@ function App() {
   const cookies = new Cookies();
   const [user, setUser] = useState(null);
   
-  const readcookie = () =>{
-    
-  }
+
 
   useEffect(() => {
     const username = cookies.get('user');
@@ -42,6 +41,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} exact />
           <Route path='/search/:SearchResult' element={<Search />}/>
+          <Route path='/Product/:ProductID' element={<Product />}/>
           <Route path='/copyright' element={<Copyright />}/>
           <Route path='/aboutus' element={<AboutUs />}/>
 

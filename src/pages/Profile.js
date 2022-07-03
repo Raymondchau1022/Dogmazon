@@ -8,6 +8,18 @@ import InformationPic from "../images/News/Samsung.jpg";
 import NavigationBar from "../components/NavigationBar"
 import Footer from "../components/Footer"
 
+import DefaultImage from "../images/DefaultImage.jpg"
+import TempImage from "../images/blackground1.png"
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import SendIcon from '@mui/icons-material/Send';
+import Button from '@mui/material/Button';
+import { styled } from '@mui/material/styles';
+
 const Profile = () => {
 
     const cookies = new Cookies();
@@ -15,6 +27,13 @@ const Profile = () => {
     const [UserName, setUserName] = useState("");
     const [UserEmail, setUserEmail] = useState("")
     const navigate = useNavigate();
+
+    const [uploadProduct, setuploadProduct] = useState({
+        productname:"",
+        price:"",
+        producttype:"",
+        description:""
+    });
 
     useEffect(() => {
         const userid = cookies.get('user');
@@ -45,21 +64,16 @@ const Profile = () => {
 
     
 
-    const [uploadProduct, setuploadProduct] = useState({
-        productname:"",
-        price:"",
-        tag:"",
-        description:""
-    });
 
-    const image = new FormData();
 
-    function handlefile(e){
-        console.log(e.target.files[0])
-        if(e.target ){
-            image.append('file', e.target.files[0])
-        }
-    }
+    //const image = new FormData();
+
+    // function handlefile(e){
+    //     console.log(e.target.files[0])
+    //     if(e.target ){
+    //         image.append('file', e.target.files[0])
+    //     }
+    // }
 
 
     const checkuploadProduct = (e) => {
@@ -70,16 +84,21 @@ const Profile = () => {
             productname: uploadProduct.productname,
             price: uploadProduct.price,
             description: uploadProduct.description,
-            tag: uploadProduct.tag,
-            image: image
-           
+            producttype: uploadProduct.producttype,
+            image: DefaultImage
         }).then((response) => {
-
+            console.log(response.data)
         })
     }
 
     
     const [profileState, setprofileState] = useState(0)
+
+    const [productType, setProductType]=useState('')
+
+    const Input = styled('input')({
+        display: 'none',
+      });
 
     return (
         <div className="Profile">
@@ -121,19 +140,54 @@ const Profile = () => {
                     </div>
                 :(profileState === 1)? 
                     <div className='Profile-Upload'>
-                        <div className=' '>
-                        <form onSubmit={checkuploadProduct}>
-                            
-                            <input type="text" placeholder="ProductName" className='uploadProductName' onChange={(e) => {setuploadProduct({...uploadProduct, productname: e.target.value});}}/>
-                            <input type="number" placeholder="Price" className='uploadProductPrice' onChange={(e) => {setuploadProduct({...uploadProduct, price: e.target.value});}}/>
-                            <input type="text" placeholder="Description" className='uploadProductDescription' onChange={(e) => {setuploadProduct({...uploadProduct, description: e.target.value});}}/>
-                            <input type="file"  className='uploadProductImg' accept="image/*" onChange={handlefile}/>
-                        
-                           
-                            
-                            <button onClick={checkuploadProduct}>submit</button>
+                        <div className="Profile-Upload-Title">Upload</div>
+                        <form className='Profile-Upload-Container' onSubmit={checkuploadProduct}>
+                        <div className="Form-Left">
+                                    <img src={TempImage} className="uploadPhoto" />
+                                    <div>
+                                    <label htmlFor="contained-button-file">
+                                        <Input accept="image/*" id="contained-button-file" multiple type="file" />
+                                        <Button variant="contained" component="span">
+                                        Upload
+                                        </Button>
+                                    </label> 
+                                    </div>
+                                </div>
+
+                                <div className="Form-Right">
+                                    <div className="Product-Price-Container">
+                                        <div> <TextField margin="normal" type="text" id="ProductName" label="ProductName" variant="standard" required onChange={(e) => {setuploadProduct({...uploadProduct, productname: e.target.value});}}/></div>
+                                        <div><TextField margin="normal" type="number" id="Price" label="Price" variant="standard" required onChange={(e) => {setuploadProduct({...uploadProduct, price: e.target.value});}}/></div>
+                                    </div>
+                                    
+                                    <TextField type="text" id="Description" margin="normal" rows={8} label="Description" variant="filled" required multiline onChange={(e) => {setuploadProduct({...uploadProduct, description: e.target.value});}}/>
+                                                   
+                                    <div className='ProductType-Container'>
+                                        <FormControl fullWidth>
+                                        <InputLabel id="demo-simple-select-label">Choose a ProductType...</InputLabel>
+                                            <Select
+                                                labelId="demo-simple-select-label"
+                                                id="demo-simple-select"
+                                                value={productType}
+                                                label="DEFAULT"
+                                                onChange={(e) => {setuploadProduct({...uploadProduct, producttype: e.target.value}); setProductType(e.target.value);}}
+                                                >
+                                                <MenuItem value="Electronics">Electronics</MenuItem>
+                                                <MenuItem value="Fashion">Fashion</MenuItem>
+                                                <MenuItem value="Toys">Toys</MenuItem>
+                                                <MenuItem value="Foods">Foods</MenuItem>
+                                                <MenuItem value="Sports">Sports</MenuItem>
+                                                <MenuItem value="Books">Books</MenuItem>
+                                                <MenuItem value="Others">Others</MenuItem>
+                                            </Select>                                        
+                                        </FormControl>
+                                    </div>
+                                    
+                                    
+
+                                    <div className='Submit-Container'><Button variant="contained" endIcon={<SendIcon/>} onClick={checkuploadProduct}>Submit</Button></div>
+                                </div>
                         </form>
-                        </div> 
                     </div>
                 :(profileState === 2)? 
                     <div className='Profile-Uploaded_information'>

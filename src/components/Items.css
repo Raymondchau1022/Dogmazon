@@ -75,15 +75,44 @@
     box-sizing: border-box;
     align-items: flex-start;
     border-color: transparent;
+    justify-content: space-between;
     background-color: rgba(255, 255, 255, 1);
 }
 
-.Items-rank {
-    width: 30px;
-    font-size: 14px;
-    margin-right:15px;
-    
-}
+.stars-outer {
+    position: relative;
+    display: inline-block;
+    margin-right:5px;
+  }
+  
+  .stars-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+  }
+  
+  .stars-outer::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #ccc;
+  }
+  
+  .stars-inner::before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    color: #f8ce0b;
+  }
+
+  .stars-number{
+    font-weight:bold;
+  }
+  
+
 
 .Items-number {
     color: rgba(151, 151, 151, 1);

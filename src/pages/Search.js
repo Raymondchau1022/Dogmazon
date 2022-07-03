@@ -5,6 +5,7 @@ import NavigationBar from "../components/NavigationBar"
 import Footer from "../components/Footer"
 import RangeSlider from "../components/RangeSlider" 
 import Items from "../components/Items";
+import Axios from 'axios'
 import './Search.css'
 
 
@@ -30,7 +31,14 @@ const Search = () => {
     setPrice(!Price)
   }
   
-  
+  const check_existed_account = (order) =>{
+    Axios.get(`http://localhost:5000/price/${order}`
+    ).then((response) => {
+        console.log(response.data)
+        
+    })
+
+ }
 
 
   return (
@@ -84,8 +92,8 @@ const Search = () => {
                 <div className="SortingBy">
                     <div className="SortingBy-Button">Sorting By <div className='sortingby-arrow'><i className="fas fa-angle-down"></i></div></div>
                     <div className="dropdown-content">
-                      <a>Price: low to high</a>
-                      <a>Price: high to low</a>
+                      <a onClick={check_existed_account(1)}>Price: low to high</a>
+                      <a onClick={check_existed_account(-1)}>Price: high to low</a>
                       <a>Product: lastest to oldest</a>
                       <a>Product: oldest to latest</a>
                     </div>

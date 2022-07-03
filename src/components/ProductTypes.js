@@ -4,9 +4,6 @@ import Default from "../images/DefaultImage.jpg";
 
 const ProductTypes = ({image,type}) => {
   
-  
-
-
   return (
     <a href={`/search/${type}`}>
       <div className="ProductTypes" >

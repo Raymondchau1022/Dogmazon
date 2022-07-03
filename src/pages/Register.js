@@ -94,11 +94,8 @@ const Register = () => {
            username: usernameReg,
            email: emailReg,
            password: passwordReg
-       }).then((response) => {
-           console.log(response.data) 
-           cookies.set('user', usernameReg, { path: '/' });
-           setUser(usernameReg);
-           navigate('../Profile', { replace: true });
+       }).then(() => {
+           navigate('../login', { replace: true });
        })
     }
 

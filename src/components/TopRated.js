@@ -1,14 +1,14 @@
 import React, {useState, useEffect } from 'react'
-import './TopSales.css';
+import './TopRated.css';
 import Items from "./Items";
 import Axios from 'axios'
 
-const TopSales=()=>{
+const TopRated=()=>{
 
     const [Product, setProduct] = useState([]);
 
     useEffect(() => {
-        Axios.get(`http://localhost:5000/topsales`
+        Axios.get(`http://localhost:5000/toprated`
                 ).then((response) => {
                     for(let i = 0;i < response.data.length; i++){
                         setProduct(Product => [...Product,{
@@ -25,9 +25,9 @@ const TopSales=()=>{
       },[])
 
     return(
-        <div className='TopSales'>
-            <div className="title">Top Sales</div>
-            <div className='topsales-container'>
+        <div className='TopRated'>
+            <div className="title">Top Rated</div>
+            <div className='toprated-container'>
                 {Product.map((Product) => {
                     return (
                         <div key={Product.id}>
@@ -46,4 +46,4 @@ const TopSales=()=>{
         )
     }
 
-export default TopSales;
+export default TopRated;
