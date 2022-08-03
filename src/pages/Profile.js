@@ -3,12 +3,14 @@ import React, {useState, useContext, useEffect } from 'react'
 import { useNavigate } from "react-router";
 import { UserContext } from "../App";
 import Axios from 'axios'
+
+
 import './Profile.css'
 import InformationPic from "../images/News/Samsung.jpg";
 import NavigationBar from "../components/NavigationBar"
 import Footer from "../components/Footer"
+import Items from "../components/Items"
 
-import DefaultImage from "../images/DefaultImage.jpg"
 import TempImage from "../images/blackground1.png"
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -19,6 +21,7 @@ import TextField from '@mui/material/TextField';
 import SendIcon from '@mui/icons-material/Send';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
+
 
 const Profile = () => {
 
@@ -32,29 +35,57 @@ const Profile = () => {
         productname:"",
         price:"",
         producttype:"",
-        description:""
+        description:"",
     });
 
+    const defaultImage = "https://res.cloudinary.com/dogmazon/image/upload/v1658731417/ybfjtslkd57bzlshfxop.jpg"
+
+    const [uploadedProduct, setuploadedProduct] = useState([])
+    const [purchasedProduct, setPurchasedProduct] = useState([])
+
     useEffect(() => {
-        const userid = cookies.get('user');
-        if(!user) {
-            Axios.get(`http://localhost:5000/loggedin/${userid}`
-                ).then((response) => {
-                if (response.data){
-                    setUser(response.data);
-                    } else{
-                        logout();
-                    }
-                })
-        }
-        Axios.get(`http://localhost:5000/userInfo/${userid}`
+        if(user) {
+            Axios.get(`http://localhost:5000/userInfo/${user}`
                 ).then((response) => {
                 if (response.data){
                     setUserName(response.data[0]["username"]);
                     setUserEmail(response.data[1]["email"]);
                     }
                 }) 
-      },[])
+        Axios.get(`http://localhost:5000/Uploaded/${user}`
+                ).then((response) => {
+                    for(let i = 0;i < response.data.length; i++){
+                        setuploadedProduct(uploadedProduct => [...uploadedProduct,{
+                            id: i,
+                            productname: response.data[i].productname,
+                            price: response.data[i].price,
+                            ratingCount: response.data[i]["rating count"],
+                            ratingMean: response.data[i]["rating mean"],
+                            productID: response.data[i]["productID"],
+                            imageID: response.data[i]["imageID"]
+                        }])
+                    }
+                    
+                })
+        Axios.get(`http://localhost:5000/Purchased/${user}`
+                ).then((response) => {
+                    for(let i = 0;i < response.data.length; i++){
+                        setPurchasedProduct(purchasedProduct => [...purchasedProduct,{
+                            id: i,
+                            productname: response.data[i].productname,
+                            price: response.data[i].price,
+                            ratingCount: response.data[i]["rating count"],
+                            ratingMean: response.data[i]["rating mean"],
+                            productID: response.data[i]["productID"],
+                            imageID: response.data[i]["imageID"]
+                        }])
+                    }
+                    
+                }) 
+        } else {
+            navigate('../login', { replace: true });
+        }
+      },[user])
 
     function logout(){
         cookies.remove('user');
@@ -63,32 +94,54 @@ const Profile = () => {
     }
 
     
+    const [img, setimg] = useState("")
+    const [Preview, setPreview] = useState("")
+
+    function handlefile(e){
+        setimg(e.target.files[0])
+        setPreview(URL.createObjectURL(e.target.files[0]))
+    }
 
 
 
-    //const image = new FormData();
-
-    // function handlefile(e){
-    //     console.log(e.target.files[0])
-    //     if(e.target ){
-    //         image.append('file', e.target.files[0])
-    //     }
-    // }
-
-
-    const checkuploadProduct = (e) => {
+    const checkuploadProduct  = async (e) =>{
         e.preventDefault();
-        console.log(uploadProduct)
-        Axios.post("http://localhost:5000/add_products",{
-            username: user,
-            productname: uploadProduct.productname,
-            price: uploadProduct.price,
-            description: uploadProduct.description,
-            producttype: uploadProduct.producttype,
-            image: DefaultImage
-        }).then((response) => {
-            console.log(response.data)
-        })
+
+        const uploadImage = () =>{
+            if(img){
+                let file = img
+                let formData = new FormData();
+                formData.append("file",file)
+                formData.append("upload_preset","Dogmazon")
+    
+                Axios.post("https://api.cloudinary.com/v1_1/dogmazon/image/upload",formData)
+                .then((response) => {
+                    ProductUpload(response.data.url)
+                    
+                })
+
+            } else {
+                ProductUpload(defaultImage)
+            }
+            
+        }
+
+        const ProductUpload = (image) =>{
+            Axios.post("http://localhost:5000/add_products",{
+                userID: user,
+                productname: uploadProduct.productname,
+                price: uploadProduct.price,
+                description: uploadProduct.description,
+                producttype: uploadProduct.producttype,
+                imageID: image,
+            }).then(() => {
+                console.log("Uploaded")
+            })
+        }
+        
+        await uploadImage()
+   
+
     }
 
     
@@ -138,17 +191,20 @@ const Profile = () => {
                             <img src={InformationPic} alt='Information'/>  
                         </div>
                     </div>
-                :(profileState === 1)? 
+                    :(profileState === 1)? 
                     <div className='Profile-Upload'>
                         <div className="Profile-Upload-Title">Upload</div>
                         <form className='Profile-Upload-Container' onSubmit={checkuploadProduct}>
                         <div className="Form-Left">
-                                    <img src={TempImage} className="uploadPhoto" />
+                            {(Preview)?
+                                <img src={Preview} className="uploadPhoto" />:
+                                <img src={TempImage} className="uploadPhoto" />
+                            }
                                     <div>
                                     <label htmlFor="contained-button-file">
-                                        <Input accept="image/*" id="contained-button-file" multiple type="file" />
+                                        <Input accept="image/*" id="contained-button-file" multiple type="file" onChange={(e) => {handlefile(e)}}/>
                                         <Button variant="contained" component="span">
-                                        Upload
+                                            Upload
                                         </Button>
                                     </label> 
                                     </div>
@@ -182,20 +238,55 @@ const Profile = () => {
                                             </Select>                                        
                                         </FormControl>
                                     </div>
-                                    
-                                    
+
 
                                     <div className='Submit-Container'><Button variant="contained" endIcon={<SendIcon/>} onClick={checkuploadProduct}>Submit</Button></div>
                                 </div>
                         </form>
                     </div>
-                :(profileState === 2)? 
-                    <div className='Profile-Uploaded_information'>
-                        Uploaded_information
+                    :(profileState === 2)?           
+                        (uploadedProduct.length !== 0)?
+                        <div className='Uploaded-container' >
+                            {uploadedProduct.map((uploadedProduct) => {
+                                return (
+                                <div key={uploadedProduct.id}>
+                                <Items description ={uploadedProduct.productname}
+                                dollor = {uploadedProduct.price}
+                                number = {uploadedProduct.ratingCount}
+                                rank = {uploadedProduct.ratingMean}
+                                productID = {uploadedProduct.productID}
+                                imageID = {uploadedProduct.imageID}
+                                />
+                                </div>
+                                );
+                            })}
+                        </div>
+                        :
+                        <div className="UploadedFalse">
+                            You have no products uploaded yet.
+                        </div>
+                        
+                    
+                    :
+                    (purchasedProduct.length !== 0)?
+                    <div className='Profile-Purchased' >
+                        {purchasedProduct.map((purchasedProduct) => {
+                            return (
+                            <div key={purchasedProduct.id}>
+                            <Items description ={purchasedProduct.productname}
+                            dollor = {purchasedProduct.price}
+                            number = {purchasedProduct.ratingCount}
+                            rank = {purchasedProduct.ratingMean}
+                            productID = {purchasedProduct.productID}
+                            imageID = {purchasedProduct.imageID}
+                            />
+                            </div>
+                            );
+                        })}
                     </div>
-                :
-                    <div className='Profile-Purchased'>
-                        Purchased
+                    :
+                    <div className="PurchasedFalse">
+                        You haven't bought anything yet.
                     </div>
                 }
                 </div>

@@ -11,3 +11,107 @@
 .SorryPhoto{
     width:20%;
 }
+
+.ProductTrue{
+    width:100vw;
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.Product-Right{
+    width:30%;
+    margin:3% 3%;
+}
+.ProductPhoto{
+    width:23vw;
+    margin:3% 3%;
+}
+
+.Product-Title{
+    font-size:3rem;
+    line-height: 50px;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    margin:3% 0;
+
+}
+
+.Product-Rating-Container{
+    font-size: 14px;
+    line-height: 20px;
+    display:flex;
+}
+
+.Product-Price-container{
+    display:flex;
+    margin: 2% 0 5px 0;
+}
+.Product-Pricetitle{
+    color:#565959;
+    margin-right:5px;
+    font-family: Arial,sans-serif;
+}
+.Product-Price{
+    color:#B12704;
+    font-weight: bold;
+}
+
+.Product-soldNumber{
+
+}
+
+.Product-producttype{
+
+}
+
+.Product-description-container{
+    font-size:20px;
+    margin-bottom:3% ;
+}
+
+.Speration{
+    font-weight: bold;
+    margin:0 5px;
+}
+
+.Product-Ranking{
+    color: #007185;
+    font-size: 14px!important;
+    line-height: 20px!important;
+    font-family: "Amazon Ember",Arial,sans-serif;
+    margin:0 10px 0 1px;
+}
+
+.Product-RatingNum{
+    color: #007185;
+    font-size: 14px!important;
+    line-height: 20px!important;
+    font-family: "Amazon Ember",Arial,sans-serif;
+}
+
+.Product-producttype{
+    color: #007185;
+    font-size: 14px!important;
+    line-height: 20px!important;
+    font-family: "Amazon Ember",Arial,sans-serif;
+}
+.Hr{
+    margin:-5px 0;
+}
+
+.Product-About{
+    font-weight: bold;
+}  
+
+.Product-buy{
+    border-radius:50px;
+    box-shadow: 0px 1.6px 3.6px rgb(0 0 0 / 25%), 0px 0px 2.9px rgb(0 0 0 / 22%);
+    border: 1px #D5D9D9 solid;
+    height:12vh;
+    width:12vw;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+

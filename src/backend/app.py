@@ -1,4 +1,5 @@
 from flask import Blueprint, Flask, request, jsonify , session
+from flask_pymongo import PyMongo
 import pymongo
 from flask_cors import CORS, cross_origin
 from accounts import accounts
@@ -6,6 +7,8 @@ from products import products
 
 
 app = Flask(__name__)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/myDatabase"
+mongo = PyMongo(app)
 
 app.register_blueprint(accounts, url_prefix="")
 app.register_blueprint(products, url_prefix="")

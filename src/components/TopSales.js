@@ -17,7 +17,8 @@ const TopSales=()=>{
                             price: response.data[i].price,
                             ratingCount: response.data[i]["rating count"],
                             ratingMean: response.data[i]["rating mean"],
-                            productID: response.data[i]["productID"]
+                            productID: response.data[i]["productID"],
+                            imageID: response.data[i]["imageID"]
                         }])
                     }
                     
@@ -36,6 +37,7 @@ const TopSales=()=>{
                             number = {Product.ratingCount}
                             rank = {Product.ratingMean}
                             productID = {Product.productID}
+                            imageID = {Product.imageID}
                             />
                         </div>
                     );

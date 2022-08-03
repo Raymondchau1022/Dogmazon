@@ -137,8 +137,83 @@ form {
     padding-left: 0.5rem;
 }
 
-.signIn, .support, .about, .profile{
+.signIn, .support, .about, .profile ,.cart{
   cursor: pointer;
   text-decoration: none;
   color: rgb(0, 0, 0);
 }
+
+.loading img{
+  width: 2vw;
+  margin-top: -0.75vh;
+}
+
+@keyframes ldio-ej2jufvwysn { 0% { transform: rotate(0) } 100% { transform: rotate(360deg); } }
+.ldio-ej2jufvwysn > div {
+  animation: ldio-ej2jufvwysn 1s infinite linear;
+  transform-origin: 105.5px 105.5px;
+}
+.ldio-ej2jufvwysn > div div { position: absolute; }
+.ldio-ej2jufvwysn > div div:nth-child(1), .ldio-ej2jufvwysn > div div:nth-child(2) {
+  width: 132.92999999999998px;
+  height: 132.92999999999998px;
+  border: 14.77px solid;
+  border-radius: 50%;
+  border-color: transparent #000000 #000000 #000000;
+  box-sizing: border-box;
+  position: absolute;
+  transform: rotate(45deg);
+  transform-origin: 105.5px 105.5px;
+}
+.ldio-ej2jufvwysn > div div:nth-child(1) {
+  transform: rotate(45deg) translate(39.035px, 39.035px);
+}
+.ldio-ej2jufvwysn > div div:nth-child(2) {
+  transform: rotate(0deg) translate(39.035px, 39.035px);;
+}
+.ldio-ej2jufvwysn > div div:nth-child(3) {
+  width: 0;
+  height: 0;
+  border: 25.32px solid;
+  border-color: transparent transparent transparent #000000;
+  transform: translate(105.5px, 26.375px);
+}
+.loadingio-spinner-reload-nmog4r4w36l {
+  width: 211px;
+  height: 211px;
+  display: inline-block;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0);
+}
+.ldio-ej2jufvwysn {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  transform-origin: 0 0; /* see note above */
+}
+
+.ldio-ej2jufvwysn div { box-sizing: content-box; }
+
+.CartNum{
+  width:1.5rem;
+  height:1.5rem;
+  top:0;
+  left:50%;
+  position:absolute;
+  transform:translate(30%,-50%);
+  border-radius: 50%;
+  background-color: #ff0000;
+  color:white;
+  display:flex;
+  justify-content: center;
+  align-items:center;
+  font-size:16px;
+}
+
+.CartNumFalse{
+  display:none;
+}
+
+

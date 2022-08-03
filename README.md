@@ -1,11 +1,9 @@
 # Dogmazon
-Dogmazon is a responsive online shopping web application, which facilitates buying and selling actions by using REST API and CRUD Operations.
-> Notice: This project is still on development status (06/4/2022). The website will be hosted after completion.
+Dogmazon is a online shopping web application, which facilitates buying and selling actions by using REST API and CRUD Operations.
 ## Technologies
-ReactJS, CSS, Python Flask, MongoDB, Axios
+ReactJS, CSS, Python Flask, MongoDB, Axios , cloudinary
 ## Highlights
 #### Design and Architecture
-* Fully Responsive
 * RESTful API
 * CRUD Operation
 #### Search and Filter
@@ -16,7 +14,6 @@ ReactJS, CSS, Python Flask, MongoDB, Axios
 * Leave your Suggestions through comments
 #### Security
 * Password Hashing
-* 2-Factor Authentication
 * Forgot Password
 #### Selling your products
 * Seller-friendly product upload session
@@ -24,17 +21,29 @@ ReactJS, CSS, Python Flask, MongoDB, Axios
 * Contact-us
 * FAQ Page
 
-## Preview
-![HOME PREVIEW](Preview/Preview1.png)
-
-![LOGIN PREVIEW](Preview/Preview2.png)
-
 ## Contributors
 <br>This web application was developed in a team of 4 people.
 <br>Credit to development team members:
 - [Rudy Yen](https://github.com/yenloned)
 - [Steven Tsui](https://github.com/steventsui123)
-- Thomas Chan
+- [Thomas Chan](https://github.com/tc11echo)
+
+## Preview
+![PREVIEW 1](Preview/Preview1.png)
+
+![PREVIEW 2](Preview/Preview2.png)
+
+![PREVIEW 3](Preview/Preview3.png)
+
+![PREVIEW 4](Preview/Preview4.png)
+
+![PREVIEW 5](Preview/Preview5.png)
+
+![PREVIEW 6](Preview/Preview6.png)
+
+![PREVIEW 7](Preview/Preview7.png)
+
+![PREVIEW 8](Preview/Preview8.png)
 
 ## Learn More
 

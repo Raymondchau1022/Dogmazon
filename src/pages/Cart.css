@@ -1,0 +1,115 @@
+
+.CartContainer{
+    display:flex;
+    width:100%;
+    height:100%;
+    justify-content: center;
+}
+.CartLeft{
+    width:45%;
+}
+.CartRight{
+    width:20%;
+    height:60%;
+    margin:55px 0 100px 0;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    border: 1px solid #8e8e8e;
+    
+}
+.CartTitle{
+    font-weight:bold;
+    font-size:24px;
+    font-family: Arial Black;
+    text-align: left;
+    width:50%;
+}
+.CartLogInContainer{
+    border: 1px solid #8e8e8e;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width:35vw;
+    height:5vh;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.CartLogInTitle{
+    margin:0 5px 0 0 ;
+    font-family: "Courier New", Courier, monospace;
+}
+.CartLogInUser{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+}
+.CartLogOut{
+    background-color: #F1F1F1;
+    padding:10px;
+    font-family: Verdana, Geneva, sans-serif;
+    font-size:10px;
+    opacity:.6;
+    color:#000;
+}
+.CartShippingContainer{
+    border: 1px solid #8e8e8e;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width:78.5%;
+    height:40%;
+    margin: 20px 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.CartShippingTitle{
+    font-family: "Courier New", Courier, monospace;
+    margin:0 5px 0 0 ;
+}
+
+.CartPaymentTitleContainer{
+    display:flex;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    width:78.5%;
+    height:3%;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    background-color: #F1F1F1;
+    padding:1% 0 0 5px;
+    margin:20px 0;
+    font-size: 1rem;
+}
+
+.CartPaymentContainer{
+    border: 1px solid #8e8e8e;
+    border-radius: 10px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width:78.5%;
+    height:40%;
+    margin: 0 0 30px 0;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.CartPaymentMethodTitle{
+    font-family: "Courier New", Courier, monospace;
+    margin:0 5px 0 30px;
+}
+
+.CartPaymentInfo{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-size: 10px;
+    margin:0 30px;
+}
+
+.CartOrderTitle{
+    font-family: "Times New Roman", Times, serif;
+    font-weight: bold;
+    font-size: 24px;
+    margin: 30px 50px;
+}

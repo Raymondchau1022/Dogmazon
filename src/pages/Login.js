@@ -24,20 +24,10 @@ const Login = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!user) {
-      const username = cookies.get("user");
-      Axios.get(`http://localhost:5000/loggedin/${username}`).then(
-        (response) => {
-          if (response.data) {
-            setUser(response.data);
-            navigate("../Profile", { replace: true });
-          }
-        }
-      );
-    } else {
+    if (user) {
       navigate("../Profile", { replace: true });
     }
-  }, []);
+  }, [user]);
 
   function PasswordToggle() {
     setMask(!mask);

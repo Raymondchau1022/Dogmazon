@@ -25,7 +25,7 @@ const footer = () => {
         </div>
         <div className='Follow-us'>
           <div className='Title'>Follow Us</div>
-          <a className='logo' target="_blank"href="https://reurl.cc/Np23Ek">
+          <a className='logo' target="_blank" rel="noreferrer" href="https://reurl.cc/Np23Ek">
             <i className="fab fa-facebook"></i>
             <i className="fab fa-instagram"></i>
             <i className="fab fa-twitter-square"></i>

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import './ProductTypes.css'
 import Default from "../images/DefaultImage.jpg";
 
+
 const ProductTypes = ({image,type}) => {
-  
+
+
   return (
-    <a href={`/search/${type}`}>
+    <a href={`/search/All/${type}`}>
       <div className="ProductTypes" >
         <img
           src={image}

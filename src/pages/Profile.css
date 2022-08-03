@@ -33,6 +33,7 @@ padding:30px;
 .Left-sidebar{
 width:13%;
 /*background-color:#D3D3D3;*/
+/* border-right:5px solid rgb(22, 22, 22); */
 }
 
 
@@ -48,8 +49,6 @@ background-color: rgb(78, 78, 78);
     width: 100%;
     justify-content: center;
     display:flex;
-    background-color: #fafafa;
-    
 }
 
 .Information-container{
@@ -191,4 +190,29 @@ display:flex;
 
 label{
     display:inline;
+}
+
+.Uploaded-container, .Profile-Purchased{
+    margin: 5vh auto;
+    display:grid;
+    justify-content: center;
+    grid-template-columns: auto auto auto auto;
+    grid-column-gap: 3vh;
+    grid-row-gap: 2vh;
+    min-height: 80vh;
+   
+}
+
+
+@media (max-width: 1280px) {
+  .Uploaded-container, .Profile-Purchased {
+    grid-template-columns: auto auto;
+    grid-column-gap: 5vh;
+  }
+}
+
+@media (max-width: 650px) {
+    .Uploaded-container, .Profile-Purchased {
+      grid-template-columns: auto;
+    }
 }

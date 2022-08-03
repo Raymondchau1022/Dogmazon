@@ -14,7 +14,12 @@ db_users = client.users
 @accounts.route("/create_accounts",methods=['POST'])
 def create_accounts():
     passwordHash =  pbkdf2_sha256.hash(request.json["password"])
-    db_users.accounts.insert_one({"username":request.json["username"],"email":request.json["email"],"password":passwordHash})
+    db_users.accounts.insert_one({
+        "username":request.json["username"],
+        "email":request.json["email"],
+        "password":passwordHash,
+        "bought":[]
+        })
     return (request.json["username"])
 
 
@@ -34,7 +39,7 @@ def login_accounts(email,password):
     if (login is not None) and (pbkdf2_sha256.verify(password, login['password'])):
         return str(login.get("_id"))
     return ("")
-
+    
 @accounts.route("/loggedin/<userid>",methods=['GET'])
 def loggedin(userid):
     try:
@@ -44,6 +49,7 @@ def loggedin(userid):
     if (checkUsername is not None):
         return (userid)
     return ("")
+
 
 @accounts.route("/userInfo/<userid>",methods=['GET'])
 def userInfo(userid):

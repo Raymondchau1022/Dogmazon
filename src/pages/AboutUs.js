@@ -121,7 +121,7 @@ const AboutUs = () => {
           <div className='Member-content'>
               <img 
                 src={RUDY}
-                alt="Raymond"
+                alt="Rudy"
                 className='Member-image'
               />
             <div className='Member-name'>Rudy Yen</div>
@@ -134,27 +134,27 @@ const AboutUs = () => {
           <div className='Member-content'>
             <img 
               src={thomas}
-              alt="Raymond"
+              alt="thomas"
               className='Member-image'
             />
             <div className='Member-name'>Thomas Chan</div>
             <div className='Member-contact'>
-              <a href='' target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
+              <a href='https://www.linkedin.com/in/thomas-chan-ab9bb8240/' target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
               <a href='mailto:thomaschan2357@gmail.com'><i className="fas fa-envelope"></i></a>
-              <a href='' target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+              <a href='https://github.com/tc11echo' target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
             </div>
           </div>
           <div className='Member-content'>
             <img 
               src={Steven}
-              alt="Raymond"
+              alt="Steven"
               className='Member-image'
             />
             <div className='Member-name'>Steven Tsui</div>
             <div className='Member-contact'>
               <a href='https://www.linkedin.com/in/steven-tsui-95b489224/' target="_blank" rel="noopener noreferrer"><i className="fa-brands fa-linkedin"></i></a>
               <a href='mailto:steventsui23@gmail.com'><i className="fas fa-envelope"></i></a>
-              <a href='' target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+              <a href='https://github.com/steventsui123' target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
             </div>
           </div>
         </div>
