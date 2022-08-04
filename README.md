@@ -1,22 +1,24 @@
 # Dogmazon
-Dogmazon is a online shopping web application, which facilitates buying and selling actions by using REST API and CRUD Operations.
+Dogmazon is an online marketplace web application, which facilitates buying and selling actions.
 ## Technologies
-ReactJS, CSS, Python Flask, MongoDB, Axios , cloudinary
+ReactJS, CSS, Python Flask, MongoDB, Axios , Cloudinary, Figma
 ## Highlights
 #### Design and Architecture
 * RESTful API
 * CRUD Operation
+* One web server (with database)
 #### Search and Filter
 * Search engine system
 * Category and Sorting product filters
-#### Rating and Comments
+#### Rating System 
 * Ratings from one to five
-* Leave your Suggestions through comments
+* Rating Counter to show the number of people who have rated the product
 #### Security
 * Password Hashing
-* Forgot Password
+* Strong Password Requirement/Restriction
 #### Selling your products
 * Seller-friendly product upload session
+* Easy to view/manage the uploaded products
 #### Customer Service
 * Contact-us
 * FAQ Page
